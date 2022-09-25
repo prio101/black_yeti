@@ -1,0 +1,6 @@
+.git
+.dockerignore
+.env
+black_yeti/node_modules/
+black_yeti/vendor/bundle/
+black_yeti/tmp/

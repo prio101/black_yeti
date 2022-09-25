@@ -1,0 +1,14 @@
+FROM ruby:3.1.2 AS rails-toolbox
+
+#default dir
+ENV INSTALL_PATH /opt/app
+RUN mkdir -p $INSTALL_PATH
+
+#INSTALL Rails
+RUN gem install rails bundler
+#RUN chown -R user:user /opt/app
+
+WORKDIR /opt/app
+
+#RUN a shell
+CMD ["/bin/sh"]
