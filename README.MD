@@ -7,6 +7,10 @@ Application made with Ruby on Rails for quick Demo of the
 Black Yeti Service application.
 
 
+# Frontend:
+---
+- [Tailwind](https://tailwindcss.com/)
+- [HyperUI](https://www.hyperui.dev/)
 
 
 
