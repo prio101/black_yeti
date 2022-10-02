@@ -1,7 +1,7 @@
-require "test_helper"
+require 'test_helper'
 
 class HomesControllerTest < ActionDispatch::IntegrationTest
-  test "should return 200" do
+  test 'should return 200' do
     get :index
     assert_response 200
   end

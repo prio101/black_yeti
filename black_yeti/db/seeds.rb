@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+20.times do
+  Service.create(
+    name: "Service-#{Faker::Number.number}",
+    tag: Faker::Book.title,
+    description: Faker::Lorem.paragraph,
+    published: [true, false].sample
+  )
+end
