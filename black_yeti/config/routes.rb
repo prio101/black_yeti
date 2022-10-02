@@ -3,4 +3,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "homes#index"
+
+  # api
+  namespace 'api' do
+    namespace 'v1' do
+      resources :services, only: [:index]
+    end
+  end
 end
