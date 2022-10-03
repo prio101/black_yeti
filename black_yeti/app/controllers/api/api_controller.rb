@@ -5,5 +5,6 @@ module Api
     # look into null session
     # protect_from_forgery: :with_null_session
     include Paginator
+    include ApiMessages
   end
 end
