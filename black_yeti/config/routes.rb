@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   # api
   namespace 'api' do
     namespace 'v1' do
-      resources :services, only: [:index, :show]
+      resources :services, except: [ :new, :edit ]
+      resources :bookings, except: [ :new, :edit ]
+      resources :payments, except: [ :new, :edit ]
+      resources :users, only: [ :index, :update ]
     end
   end
 end

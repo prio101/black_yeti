@@ -2,8 +2,7 @@
 
 module Api
   class ApiController < ApplicationController
-    # look into null session
-    # protect_from_forgery: :with_null_session
+    protect_from_forgery  with: :null_session
     include Paginator
     include ApiMessages
   end
