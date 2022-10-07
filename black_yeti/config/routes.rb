@@ -13,6 +13,9 @@ Rails.application.routes.draw do
       resources :bookings, except: [ :new, :edit ]
       resources :payments, except: [ :new, :edit ]
       resources :users, only: [ :index, :update ]
+      scope :auths do
+        post :login, to: 'auths#login'
+      end
     end
   end
 end
