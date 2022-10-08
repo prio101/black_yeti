@@ -19,7 +19,7 @@ services:
     volumes:
       - black-yeti-redis:/var/lib/redis/data
 
-  black_yeti:
+  web:
     build:
       context: .
     volumes:
@@ -31,6 +31,8 @@ services:
       - '8010:8010'
     env_file:
       - .env
+    stdin_open: true
+    tty: true
 
   sidekiq:
     build:
@@ -47,7 +49,7 @@ services:
       context: .
       dockerfile: ./Dockerfile.nginx
     links:
-      - black_yeti
+      - web
     ports:
       - '8020:8020'
 
