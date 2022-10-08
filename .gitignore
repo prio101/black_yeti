@@ -1,2 +1,5 @@
 .env
 .byebug_history
+black_yeti/tmp
+black_yeti/test
+

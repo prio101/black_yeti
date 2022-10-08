@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,40 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_220_926_183_203) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_07_183026) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'bookings', force: :cascade do |t|
-    t.datetime 'booking_at'
-    t.string 'state'
-    t.bigint 'user_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['user_id'], name: 'index_bookings_on_user_id'
+  create_table "bookings", force: :cascade do |t|
+    t.datetime "booking_at"
+    t.string "state"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
-  create_table 'payments', force: :cascade do |t|
-    t.decimal 'amount'
-    t.bigint 'booking_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['booking_id'], name: 'index_payments_on_booking_id'
+  create_table "payments", force: :cascade do |t|
+    t.decimal "amount"
+    t.bigint "booking_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_payments_on_booking_id"
   end
 
-  create_table 'services', force: :cascade do |t|
-    t.string 'name'
-    t.string 'tag'
-    t.text 'description'
-    t.boolean 'published'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "services", force: :cascade do |t|
+    t.string "name"
+    t.string "tag"
+    t.text "description"
+    t.boolean "published"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'first_name'
-    t.string 'last_name'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "email"
+    t.string "token"
+    t.datetime "expire_at"
+    t.string "password_digest"
+    t.string "recovery_password_digest"
   end
+
 end

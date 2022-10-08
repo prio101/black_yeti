@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       resources :users, only: [ :index, :update ]
       scope :auths do
         post :login, to: 'auths#login'
+        post :register, to: 'auths#register'
       end
     end
   end
