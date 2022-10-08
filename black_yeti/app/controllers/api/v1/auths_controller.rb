@@ -29,8 +29,11 @@ class Api::V1::AuthsController < Api::ApiController
   def load_response(user)
     expire_at = User::DEFINED_TIME
     token = generate_token({ data: { email: user.email, expire_at: expire_at }})
-    user.update(token: token, expire_at: expire_at)
-    render json: { data: { token: token, expire_at: expire_at.to_time.to_i } } , status: :ok
+    user.token = token
+    user.expire_at = expire_at
+    user.save!
+    byebug
+    render json: { data: { token: user.token, expire_at: user.expire_at.to_time.to_i } } , status: :ok
   end
 
   def password_wont_match(password, password_confirmation)
@@ -39,7 +42,9 @@ class Api::V1::AuthsController < Api::ApiController
 
   def generate_token payload
     hmac_secret = 'my$ecretK3y'
-    JWT.encode(payload, hmac_secret, 'HS256')
+    token = JWT.encode(payload, hmac_secret, 'HS256')
+    byebug
+    token
   end
 
   # not implemented yet.
