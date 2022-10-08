@@ -15,3 +15,11 @@
     published: [true, false].sample
   )
 end
+
+20.times do
+  Booking.create(
+    booking_at: 7.days.before,
+    state: "On Progress",
+    user_id: User.first.id
+  )
+end
