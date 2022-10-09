@@ -25,28 +25,25 @@
             $<%= @service&.price %>
           </p>
 
-          <div class="mt-4 sm:mt-8">
-            <a
-              href="#"
-              class="inline-flex items-center rounded-full bg-blue-700 px-8 py-3 text-white shadow-lg transition hover:bg-blue-600 focus:outline-none focus:ring"
-            >
-              <span class="text-sm font-medium"> Order Now </span>
+          <div class="mt-4 sm:mt-8 flex flex-1">
+            <%= link_to new_web_v1_booking_path, class: 'inline-flex items-center rounded-full bg-blue-700 px-8 py-3 text-white shadow-lg transition hover:bg-blue-600 focus:outline-none focus:ring' do %>
+                <span class="text-sm font-medium"> Order Now </span>
 
-              <svg
-                class="ml-3 h-5 w-5"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </a>
+                <svg
+                  class="ml-3 h-5 w-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+            <% end %>
           </div>
         </div>
       </div>
@@ -105,27 +102,24 @@
 
 
   <div class="mt-4 sm:mt-8 flex flex-1 justify-center">
-    <a
-      href="#"
-      class="inline-flex items-center rounded-full bg-blue-700 px-8 py-3 text-white shadow-lg transition hover:bg-blue-600 focus:outline-none focus:ring"
-    >
-      <span class="text-sm font-medium"> Order Now </span>
+    <%= link_to web_v1_bookings_path, method: :post, class: 'inline-flex items-center rounded-full bg-blue-700 px-8 py-3 text-white shadow-lg transition hover:bg-blue-600 focus:outline-none focus:ring' do %>
+        <span class="text-sm font-medium"> Order Now </span>
 
-      <svg
-        class="ml-3 h-5 w-5"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M17 8l4 4m0 0l-4 4m4-4H3"
-        />
-      </svg>
-    </a>
+        <svg
+          class="ml-3 h-5 w-5"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"
+          />
+        </svg>
+    <% end %>
   </div>
 <div>
 

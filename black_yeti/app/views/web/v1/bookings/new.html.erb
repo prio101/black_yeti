@@ -1,0 +1,5 @@
+<%= render partial: 'shared/navbar' %>
+
+<%= render partial: 'shared/bookings/form', locals: { action_name: :create, service_id: Service.first.id } %>
+
+<%= render partial: 'shared/footer' %>

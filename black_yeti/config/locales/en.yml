@@ -33,3 +33,7 @@ en:
   hello: "Hello world"
   services:
     services: 'Services'
+    more_info: 'We need some more information'
+    more_info_para: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam
+      dolorum aliquam, quibusdam aperiam voluptatum.'
+    booking_note: 'By Booking an service, you agree to our'

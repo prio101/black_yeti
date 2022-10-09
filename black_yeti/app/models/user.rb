@@ -7,4 +7,5 @@ class User < ApplicationRecord
   DEFINED_TIME = 7.days.after
 
   has_many :bookings
+  has_many :addresses
 end
