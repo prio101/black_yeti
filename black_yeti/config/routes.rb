@@ -6,6 +6,17 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'homes#index'
 
+
+  namespace 'web' do
+    namespace 'v1' do
+      resources :services
+      resources :bookings
+      
+      resources :users, only: [:index, :edit, :update]
+    end
+  end
+
+
   # api
   namespace 'api' do
     namespace 'v1' do
