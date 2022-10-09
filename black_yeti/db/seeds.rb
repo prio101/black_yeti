@@ -16,6 +16,17 @@
   )
 end
 
+Service.all.each do |service|
+  [2,4,6].sample.times do
+    ServiceFeature.create(
+      name: "Service Feature - #{Faker::Number.number}",
+      description: Faker::Lorem.paragraph,
+      published: [true, false].sample,
+      service_id: service.id
+    )
+  end
+end
+
 20.times do
   Booking.create(
     booking_at: 7.days.before,
