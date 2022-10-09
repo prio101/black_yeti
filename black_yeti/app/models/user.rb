@@ -8,4 +8,6 @@ class User < ApplicationRecord
 
   has_many :bookings
   has_many :addresses
+
+  validates_presence_of :email
 end

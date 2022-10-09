@@ -2,10 +2,11 @@ class WebsController < ApplicationController
   before_action :set_user
 
   def set_user
-    @user = User.first
+    return false if session[:user_id].nil?
+    @user = User.find(session[:user_id])
   end
 
   def current_user
-    @user
+    @user ||= nil
   end
 end

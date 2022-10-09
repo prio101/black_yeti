@@ -33,7 +33,9 @@
         <%= link_to t('services.services'), web_v1_services_path, class: 'block h-16 leading-[4rem] border-b-4 border-transparent hover:text-green-400 hover:border-current' %>
       </nav>
 
-      <div class="flex items-center ml-8">
+
+        <% unless @user.nil? %>
+        <div class="flex items-center ml-8">
         <div
           class="flex items-center border-gray-100 divide-x divide-gray-100 border-x"
         >
@@ -79,6 +81,27 @@
             <% end %>
           </span>
 
+          <nav
+            class="hidden lg:uppercase lg:text-gray-500 lg:tracking-wide lg:font-bold lg:text-xs lg:gap-4 lg:flex"
+          >
+
+            <%= button_to t('home.logout'), web_v1_session_path(@user&.id),
+                method: :delete,
+                class: 'block h-16 leading-[4rem] border-b-4
+                  border-transparent hover:text-green-400 hover:border-current' %>
+          </nav>
+
+          <% else %>
+            <nav
+              class="hidden lg:uppercase lg:text-gray-500 lg:tracking-wide lg:font-bold lg:text-xs lg:gap-4 lg:flex"
+            >
+
+              <%= link_to t('home.signin'), new_web_v1_session_path,
+                  class: 'block px-2 h-16 leading-[4rem] border-b-4
+                    border-transparent hover:text-green-400 hover:border-current' %>
+            </nav>
+
+          <% end %>
           <span class="hidden sm:block">
             <a
               href="/search"

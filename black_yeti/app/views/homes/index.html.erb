@@ -1,5 +1,5 @@
-<%= render partial: 'shared/navbar' %>
+<%= render partial: 'shared/navbar', locals: { current_user: @user } %>
 <%= render partial: 'shared/hero' %>
-<%= render partial: 'shared/list', locals: {services: @services} %>
+<%= render partial: 'shared/list', locals: { services: @services } %>
 <%= render partial: 'shared/why_us' %>
 <%= render partial: 'shared/footer' %>

@@ -31,6 +31,9 @@
 
 en:
   hello: "Hello world"
+  home:
+    logout: 'Log Out'
+    signin: 'Sign In'
   services:
     services: 'Services'
     more_info: 'We need some more information'

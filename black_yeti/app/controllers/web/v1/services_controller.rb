@@ -1,4 +1,4 @@
-class Web::V1::ServicesController < ApplicationController
+class Web::V1::ServicesController < WebsController
   before_action :set_service, only: [:show]
   def index
     @services =  Service.where(published: true).page params[:page]
