@@ -2,4 +2,8 @@
 
 <%= render partial: 'shared/list', locals: { services: @services } %>
 
+<div class="flex flex-1 justify-center">
+  <%= paginate @services %>
+</div>
+
 <%= render partial: 'shared/footer' %>
