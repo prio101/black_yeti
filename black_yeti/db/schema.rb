@@ -10,9 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_09_075707) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_09_110211) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "street_no"
+    t.string "house_no"
+    t.string "zipcode"
+    t.text "notes"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
 
   create_table "bookings", force: :cascade do |t|
     t.datetime "booking_at"
@@ -20,6 +31,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_09_075707) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "service_id"
+    t.text "extra_notes"
+    t.index ["service_id"], name: "index_bookings_on_service_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -64,4 +78,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_09_075707) do
     t.string "recovery_password_digest"
   end
 
+  add_foreign_key "bookings", "services"
 end

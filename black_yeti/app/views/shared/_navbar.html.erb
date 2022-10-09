@@ -38,10 +38,7 @@
           class="flex items-center border-gray-100 divide-x divide-gray-100 border-x"
         >
           <span>
-            <a
-              href="/cart"
-              class="block p-6 border-b-4 border-transparent hover:border-green-400"
-            >
+            <%= link_to  web_v1_bookings_path, class:"block p-6 border-b-4 border-transparent hover:border-green-400" do %>
               <svg
                 class="w-4 h-4"
                 fill="none"
@@ -58,14 +55,11 @@
               </svg>
 
               <span class="sr-only">Cart</span>
-            </a>
+            <% end %>
           </span>
 
           <span>
-            <a
-              href="/account"
-              class="block p-6 border-b-4 border-transparent hover:border-green-400"
-            >
+            <%= link_to web_v1_users_path, class: 'block p-6 border-b-4 border-transparent hover:border-green-400' do %>
               <svg
                 class="w-4 h-4"
                 xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +76,7 @@
               </svg>
 
               <span class="sr-only"> Account </span>
-            </a>
+            <% end %>
           </span>
 
           <span class="hidden sm:block">

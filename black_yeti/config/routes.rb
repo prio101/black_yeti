@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     namespace 'v1' do
       resources :services
       resources :bookings
-      
+
       resources :users, only: [:index, :edit, :update]
     end
   end
