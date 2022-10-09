@@ -3,11 +3,12 @@ class Web::V1::BookingsController < WebsController
   before_action :initiate_booking, only: [ :new, :create ]
 
   def index
-    @bookings = Booking.where(user_id: current_user.id).page params[:page]
+    @bookings = Booking.where(user_id: current_user.id).order(created_at: :desc).page params[:page]
   end
 
   def new
     @booking = Booking.new
+    @service_id = params[:service_id]
   end
 
   def create

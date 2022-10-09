@@ -26,7 +26,7 @@
         </p>
 
         <%= form_with url: '/web/v1/bookings', method: :post do |form| %>
-          <%= form.hidden_field :service_id, value: Service.first.id %>
+          <%= form.hidden_field :service_id, value: service_id %>
           <div class="col-span-6 sm:col-span-3">
             <label
               for="area_sq_foot"
