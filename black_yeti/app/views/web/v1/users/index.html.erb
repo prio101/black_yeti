@@ -1,3 +1,7 @@
 <%= render partial: 'shared/navbar', locals: { current_user: @user } %>
- Hello <%= @user.email %>
+
+
+<%= render partial: 'info_panel', locals: { current_user: @user } %>
+
+
 <%= render partial: 'shared/footer' %>
