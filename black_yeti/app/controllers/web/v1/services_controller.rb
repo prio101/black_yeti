@@ -1,15 +1,27 @@
-class Web::V1::ServicesController < WebsController
-  before_action :set_service, only: [:show]
-  def index
-    @services =  Service.where(published: true).page params[:page]
-  end
+# frozen_string_literal: true
 
-  def show
-  end
+module Web
+  module V1
+    class ServicesController < WebsController
+      before_action :set_service, only: [:show]
 
-  private
+      def index
+        record = if params[:search].present?
+                   Service.published.search(params[:search]).records
+                 else
+                   Service.published
+                 end
 
-  def set_service
-    @service = Service.find(params[:id])
+        @services =  record.page params[:page]
+      end
+
+      def show; end
+
+      private
+
+      def set_service
+        @service = Service.find(params[:id])
+      end
+    end
   end
 end

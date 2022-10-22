@@ -8,6 +8,7 @@ module Searchable
     mapping do
       indexes :name, type: :text
       indexes :tag, type: :text
+      indexes :description, type: :text
     end
 
     def self.search(query)
