@@ -1,6 +1,18 @@
 version: "3.9"
 
 services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.6
+    container_name: elasticsearch
+    environment:
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+    ports:
+      - 9200:9200
+      - 9300:9300
+    volumes:
+      - elasticsearch-data:/var/lib/elasticsearch/data
+
   postgres:
     image: postgres:14.2
     environment:
@@ -18,21 +30,6 @@ services:
     volumes:
       - black-yeti-redis:/var/lib/redis/data
 
-  web:
-    build:
-      context: .
-    volumes:
-      - ./black_yeti:/opt/app
-    links:
-      - postgres
-      - redis
-    ports:
-      - '8010:8010'
-    env_file:
-      - .env
-    stdin_open: true
-    tty: true
-
   sidekiq:
     build:
       context: .
@@ -43,15 +40,33 @@ services:
     env_file:
       - .env
 
-  nginx:
+  web:
     build:
       context: .
-      dockerfile: ./Dockerfile.nginx
+    volumes:
+      - ./black_yeti:/opt/app
     links:
-      - web
+      - postgres
+      - redis
+      - elasticsearch:elasticsearch
     ports:
-      - '8020:8020'
+      - '8010:8010'
+    env_file:
+      - .env
+    stdin_open: true
+    tty: true
+
+  # nginx:
+  #   build:
+  #     context: .
+  #     dockerfile: ./Dockerfile.nginx
+  #   links:
+  #     - web
+  #   ports:
+  #     - '8020:8020'
 
 volumes:
   black-yeti-postgres:
   black-yeti-redis:
+  elasticsearch-data:
+    driver: local

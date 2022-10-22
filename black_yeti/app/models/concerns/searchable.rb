@@ -11,7 +11,7 @@ module Searchable
     end
 
     def self.search(query)
-      # build and run search
+      self.__elasticsearch__.search(query)
     end
   end
 end
