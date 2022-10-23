@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_secure_password :recovery_password, validations: false
 
   DEFINED_TIME = 7.days.after
+  GREETER = 'info@jmtgoodyard.com'
 
   has_many :bookings
   has_many :addresses
