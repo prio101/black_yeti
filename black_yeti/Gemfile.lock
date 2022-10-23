@@ -289,12 +289,15 @@ GEM
       rubocop (>= 1.33.0, < 2.0)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
+    ruby_http_client (3.5.5)
     rubyzip (2.3.2)
     selenium-webdriver (4.4.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sendgrid-ruby (6.6.2)
+      ruby_http_client (~> 3.4)
     sidekiq (6.4.2)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
@@ -363,6 +366,7 @@ DEPENDENCIES
   rspec-rails
   rubocop-rails
   selenium-webdriver
+  sendgrid-ruby
   sidekiq (~> 6.4.2)
   sprockets-rails
   stimulus-rails

@@ -17,7 +17,6 @@ class Web::V1::SessionsController < ApplicationController
   end
 
   def create_registration
-    byebug
     if params[:email].present? and params[:password].present? and params[:password_confirmation].present?
       return unless params[:password] == params[:password_confirmation]
       user = User.new
@@ -26,6 +25,7 @@ class Web::V1::SessionsController < ApplicationController
         user.password = params[:password]
         user.accept_newsletter = params[:accept_newsletter]
         user.save!
+        SendRegistrationEmailJob.perform_later(user)
       end
       session[:user_id] = user.id
       redirect_to root_url, notice: 'Registered User.'
