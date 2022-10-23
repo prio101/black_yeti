@@ -8,6 +8,8 @@ module Web
       def index
         record = if params[:search].present?
                    Service.published.search(params[:search]).records
+                 elsif params[:popularity_choice_select].present?
+                   Service.services_by_popularity(params[:popularity_choice_select])
                  else
                    Service.published
                  end
