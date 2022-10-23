@@ -5,10 +5,11 @@
       Email
     </label>
 
-    <%= form.text_field :email, class: 'p-3 mt-1 w-full rounded-md border border-gray-200 bg-white text-sm text-gray-700 shadow-sm'%>
+    <%= form.text_field :email, class: 'p-3 mt-1 w-full rounded-md
+      border border-gray-200 bg-white text-sm text-gray-700 shadow-sm'%>
   </div>
 
-  <div class="col-span-6 sm:col-span-3">
+  <div class="col-span-6">
     <label
       for="Password"
       class="block text-sm font-medium text-gray-700"
@@ -16,11 +17,12 @@
       Password
     </label>
 
-    <%= form.password_field :password, class: 'p-3 mt-1 w-full rounded-md border border-gray-200 bg-white text-sm text-gray-700 shadow-sm'%>
+    <%= form.password_field :password, class: 'p-3 mt-1 w-full rounded-md border
+      border-gray-200 bg-white text-sm text-gray-700 shadow-sm'%>
   </div>
 
   <% if action_name != 'new' %>
-    <div class="col-span-6 sm:col-span-3">
+    <div class="col-span-6">
       <label
         for="PasswordConfirmation"
         class="block text-sm font-medium text-gray-700"
@@ -65,7 +67,7 @@
 
         <p class="mt-4 text-sm text-gray-500 sm:mt-0">
           Already have an account?
-          <a href="#" class="text-gray-700 underline">Log in</a>.
+          <%= link_to 'Log in', new_web_v1_session_path, class: 'text-gray-700 underline' %>.
         </p>
       <%else%>
         <button

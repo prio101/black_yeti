@@ -1,5 +1,8 @@
 <%= render partial: 'shared/navbar', locals: { current_user: @user } %>
 
+<%= render partial: 'shared/search' %>
+<%= render partial: 'shared/filter' %>
+
 <%= render partial: 'shared/list', locals: { services: @services } %>
 
 <div class="flex flex-1 justify-center">
