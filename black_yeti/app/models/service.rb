@@ -15,7 +15,7 @@ class Service < ApplicationRecord
   scope :published, -> { where(published: true) }
 
   def self.services_by_popularity choice
-    case choice
+    case choice.to_i
     when 0
       where('created_at >=? AND published = ?', 3.days.before, true)
     when 1
