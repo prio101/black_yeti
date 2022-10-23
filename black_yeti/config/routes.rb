@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       resources :bookings
 
       resources :users, only: [:index, :edit, :update]
+      post 'users/disable_subscription', to: 'users#disable'
       resources :sessions, only: [ :new, :create, :destroy ]
       get 'register', to: 'sessions#register'
       post 'register', to: 'sessions#create_registration'
